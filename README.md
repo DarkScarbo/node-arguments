@@ -16,9 +16,7 @@ Your program needs to have an input which is independent of the source code (the
 
 How do we pass data to Node? `node` is just a command-line program and we can pass arguments to it. For example, we can pass two numbers to a program (file `sum.js`) that calculates the sum of them:
 
-```
-node sum.js 10 47
-```
+`node sum.js 10 47`
 
 The result of `10 + 47` is 57. We can pass numbers or strings as arguments. This approach is useful when you're running scripts which require small enough input that you can fit it in the command line, or when building command-line tools with Node. Another use case is when you have a complex program that needs to be launched in different modes, e.g., development mode with more verbose logging versus production mode.
 
@@ -29,13 +27,13 @@ You've learned how to pass arguments, but how can you access them when you write
 Consider the sum.js program. First we use `shift` to get rid of the first two elements and then `forEach()` to iterate through an indefinite number of arguments. Then we convert each argument to a number and add them up to the `sum` variable:
 
 ```js
-var sum = 0
-process.argv.shift()
-process.argv.shift()
+var sum = 0;
+process.argv.shift();
+process.argv.shift();
 process.argv.forEach(function summarize(item, index, list) {
-  sum += parseInt(item, 10)
-})
-console.log(sum)
+  sum += parseInt(item, 10);
+});
+console.log(sum);
 ```
 
 ## First Arguments
@@ -77,15 +75,13 @@ The difference is self evident when you look at the command. The first command h
 
 When working with `process.argv`, it's important to be mindful of the first arguments. They might not be the data you expect.
 
-
 ## Resources
 
 1. [process.argv official documentation](https://nodejs.org/docs/latest/api/process.html#process_process_argv)
 1. [Unix and Node: Command-line Arguments](http://dailyjs.com/2012/03/01/unix-node-arguments)
-2. [Using Command Line Arguments in a Node Script](http://justindavis.co/2014/11/24/using-command-line-arguments-in-a-node-script)
-3. [Commander.js: Solution for command-line interfaces](https://github.com/tj/commander.js)
+1. [Using Command Line Arguments in a Node Script](http://justindavis.co/2014/11/24/using-command-line-arguments-in-a-node-script)
+1. [Commander.js: Solution for command-line interfaces](https://github.com/tj/commander.js)
 1. [Yargs: CLI Arguments Parser](http://yargs.js.org)
-
 
 ---
 
